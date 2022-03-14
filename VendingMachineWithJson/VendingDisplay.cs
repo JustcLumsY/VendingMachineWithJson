@@ -7,13 +7,19 @@ namespace VendingMachineWithJson
 {
     internal class VendingDisplay
     {
-
+       
         public VendingDisplay()
         {
-        var path = @"C:\Users\cLuMsY\Desktop\Wares.json";
-        var text = File.ReadAllText(path);
-        var temp = JsonConvert.DeserializeObject<List<Ware>>(text);
-        File.WriteAllText(path, JsonConvert.SerializeObject(temp));
+
+            PrintWareInfo();
+        }
+
+        private void PrintWareInfo()
+        {
+            var path = @"C:\Users\cLuMsY\Desktop\Wares.json";
+            var text = File.ReadAllText(path);
+            var temp = JsonHandler.GetListFromJson();
+            File.WriteAllText(path, JsonConvert.SerializeObject(temp));
 
             foreach (var ware in temp)
             {
@@ -21,9 +27,7 @@ namespace VendingMachineWithJson
                 Console.WriteLine($"{ware.Price}Kr");
                 Console.WriteLine($"Stock:{ware.Amount}");
                 Console.WriteLine("\n");
-    
             }
         }
-
     }
 }
