@@ -17,7 +17,7 @@
 
         public void AddAmountOfMoney(int input)
         {
-            AmountOfMoney += input;
+            AmountOfMoney = input;
         }
 
      
